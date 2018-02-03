@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/eichisanden/jstools#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "woothee": "^1.7.0"
   }
 }
