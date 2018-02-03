@@ -1,7 +1,9 @@
-var express = require('express');
-var app = express();
+"use strict";
 
-app.get('/', function (req, res) {
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
   res.send('Hello World');
 })
 
