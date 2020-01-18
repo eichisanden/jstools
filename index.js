@@ -20,7 +20,23 @@ app.all('/headers', (req, res) => {
 
 app.get('/form', (req, res) => {
   res.set('Content-Type', "text/html; charset=UTF-8");
-  res.send('<html><body><form action="https://jstools.herokuapp.com/headers" method="POST"><input type="submit" value="Submit"></form></body></html>');
+  const content = `
+  <html><body>
+    <form action="https://jstools.herokuapp.com/headers" method="GET">
+      <input type="submit" value="GET">
+    </form>
+    <form action="https://jstools.herokuapp.com/headers" method="POST">
+      <input type="submit" value="POST">
+    </form>
+    <form action="https://jstools.herokuapp.com/headers" method="PUT">
+      <input type="submit" value="PUT">
+    </form>
+    <form action="https://jstools.herokuapp.com/headers" method="DELETE">
+      <input type="submit" value="DELETE">
+    </form>
+    </body></html>
+  `
+  res.send(content);
 });
 
 app.listen(process.env.PORT || 5000);
