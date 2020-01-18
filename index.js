@@ -18,5 +18,9 @@ app.get('/headers', (req, res) => {
   return res.send(JSON.stringify(req.headers));
 });
 
+app.all('/headers', (req, res) => {
+  return res.send(JSON.stringify(req.headers));
+});
+
 app.listen(process.env.PORT || 5000);
 
