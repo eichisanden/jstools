@@ -22,6 +22,8 @@ app.get('/form', (req, res) => {
   res.set('Content-Type', "text/html; charset=UTF-8");
   const content = `
   <html><body>
+    <div>
+    Defferent Origin
     <form action="https://jstools.herokuapp.com/headers" method="GET">
       <input type="submit" value="GET">
     </form>
@@ -34,6 +36,22 @@ app.get('/form', (req, res) => {
     <form action="https://jstools.herokuapp.com/headers" method="DELETE">
       <input type="submit" value="DELETE">
     </form>
+    </div>
+    <div>
+    Same Origin
+    <form action="https://guarded-retreat-33096.herokuapp.com//headers" method="GET">
+      <input type="submit" value="GET">
+    </form>
+    <form action="https://guarded-retreat-33096.herokuapp.com//headers" method="POST">
+      <input type="submit" value="POST">
+    </form>
+    <form action="https://guarded-retreat-33096.herokuapp.com//headers" method="PUT">
+      <input type="submit" value="PUT">
+    </form>
+    <form action="https://guarded-retreat-33096.herokuapp.com//headers" method="DELETE">
+      <input type="submit" value="DELETE">
+    </form>
+    </div>
     </body></html>
   `
   res.send(content);
