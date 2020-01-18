@@ -30,26 +30,23 @@ app.get('/form', (req, res) => {
     <form action="https://jstools.herokuapp.com/headers" method="POST">
       <input type="submit" value="POST">
     </form>
-    <form action="https://jstools.herokuapp.com/headers" method="PUT">
-      <input type="submit" value="PUT">
-    </form>
-    <form action="https://jstools.herokuapp.com/headers" method="DELETE">
-      <input type="submit" value="DELETE">
-    </form>
     </div>
     <div>
     Same Origin
-    <form action="https://guarded-retreat-33096.herokuapp.com//headers" method="GET">
+    <form action="https://guarded-retreat-33096.herokuapp.com/headers" method="GET">
       <input type="submit" value="GET">
     </form>
-    <form action="https://guarded-retreat-33096.herokuapp.com//headers" method="POST">
+    <form action="https://guarded-retreat-33096.herokuapp.com/headers" method="POST">
       <input type="submit" value="POST">
     </form>
-    <form action="https://guarded-retreat-33096.herokuapp.com//headers" method="PUT">
-      <input type="submit" value="PUT">
+    </div>
+    <div>
+    Same Origin(localhost)
+    <form action="http://localhost:5000/headers" method="GET">
+      <input type="submit" value="GET">
     </form>
-    <form action="https://guarded-retreat-33096.herokuapp.com//headers" method="DELETE">
-      <input type="submit" value="DELETE">
+    <form action="http://localhost:5000/headers" method="POST">
+      <input type="submit" value="POST">
     </form>
     </div>
     </body></html>
