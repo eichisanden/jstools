@@ -14,12 +14,13 @@ app.get('/api/ua', (req, res) => {
   res.send(woothee.parse(q));
 })
 
-app.get('/headers', (req, res) => {
+app.all('/headers', (req, res) => {
   return res.send(JSON.stringify(req.headers));
 });
 
-app.all('/headers', (req, res) => {
-  return res.send(JSON.stringify(req.headers));
+app.get('/form', (req, res) => {
+  res.set('Content-Type', "text/html; charset=UTF-8");
+  res.send('<html><body><form action="https://jstools.herokuapp.com/headers" method="POST"><input type="submit" value="Submit"></form></body></html>');
 });
 
 app.listen(process.env.PORT || 5000);
