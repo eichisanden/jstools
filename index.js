@@ -57,39 +57,83 @@ app.get('/form', (req, res) => {
       <input type="submit" value="POST">
     </form>
     </div>
+
+    <h1>Fetch API</h1>
+
     <div>
     Ajax Same Origin POST
-    <input type="button" value="POST" onClick="ajaxSend('https://guarded-retreat-33096.herokuapp.com/headers', 'message1', 'POST')">
+    <input type="button" value="POST" onClick="fetchSend('https://guarded-retreat-33096.herokuapp.com/headers', 'message1', 'POST')">
     <div id="message1"></div>
     </div>
     <div>
     Ajax Cross Origin POST
-    <input type="button" value="POST" onClick="ajaxSend('https://jstools.herokuapp.com/headers', 'message2', 'POST')">
+    <input type="button" value="POST" onClick="fetchSend('https://jstools.herokuapp.com/headers', 'message2', 'POST')">
     <div id="message2"></div>
     </div>
     <div>
     Ajax Same Origin(localhost) POST
-    <input type="button" value="POST" onClick="ajaxSend('http://localhost:5000/headers', 'message3', 'POST')">
+    <input type="button" value="POST" onClick="fetchSend('http://localhost:5000/headers', 'message3', 'POST')">
     <div id="message3"></div>
     </div>
 
+    <hr>
+
     <div>
     Ajax Same Origin GET
-    <input type="button" value="GET" onClick="ajaxSend('https://guarded-retreat-33096.herokuapp.com/headers', 'message4', 'GET')">
+    <input type="button" value="GET" onClick="fetchSend('https://guarded-retreat-33096.herokuapp.com/headers', 'message4', 'GET')">
     <div id="message4"></div>
     </div>
     <div>
     Ajax Cross Origin GET
-    <input type="button" value="GET" onClick="ajaxSend('https://jstools.herokuapp.com/headers', 'message5', 'GET')">
+    <input type="button" value="GET" onClick="fetchSend('https://jstools.herokuapp.com/headers', 'message5', 'GET')">
     <div id="message5"></div>
     </div>
     <div>
     Ajax Same Origin(localhost) GET
-    <input type="button" value="GET" onClick="ajaxSend('http://localhost:5000/headers', 'message6', 'GET')">
+    <input type="button" value="GET" onClick="fetchSend('http://localhost:5000/headers', 'message6', 'GET')">
     <div id="message6"></div>
     </div>
+
+    <hr>
+
+    <h1>XMLHttpRequest</h1>
+
+    <div>
+    Ajax Same Origin POST
+    <input type="button" value="POST" onClick="xhrSend('https://guarded-retreat-33096.herokuapp.com/headers', 'message7', 'POST')">
+    <div id="message7"></div>
+    </div>
+    <div>
+    Ajax Cross Origin POST
+    <input type="button" value="POST" onClick="xhrSend('https://jstools.herokuapp.com/headers', 'message8', 'POST')">
+    <div id="message8"></div>
+    </div>
+    <div>
+    Ajax Same Origin(localhost) POST
+    <input type="button" value="POST" onClick="xhrSend('http://localhost:5000/headers', 'message9', 'POST')">
+    <div id="message9"></div>
+    </div>
+
+    <hr>
+
+    <div>
+    Ajax Same Origin GET
+    <input type="button" value="GET" onClick="xhrSend('https://guarded-retreat-33096.herokuapp.com/headers', 'message10', 'GET')">
+    <div id="message10"></div>
+    </div>
+    <div>
+    Ajax Cross Origin GET
+    <input type="button" value="GET" onClick="xhrSend('https://jstools.herokuapp.com/headers', 'message11', 'GET')">
+    <div id="message11"></div>
+    </div>
+    <div>
+    Ajax Same Origin(localhost) GET
+    <input type="button" value="GET" onClick="xhrSend('http://localhost:5000/headers', 'message12', 'GET')">
+    <div id="message12"></div>
+    </div>
+
     <script>
-    function ajaxSend(uri, divId, method) {
+    function fetchSend(uri, divId, method) {
       const elm = document.getElementById(divId);
       elm.innerText = "loading..."; 
       fetch(uri, {method:method, mode:"cors"})
@@ -100,6 +144,18 @@ app.get('/form', (req, res) => {
         elm.innerText = JSON.stringify(myJson);
       });
     }
+    function xhrSend(uri, divId, method) {
+      var xhr = new XMLHttpRequest();
+      xhr.open(method, uri);
+      xhr.onreadystatechange = function(){
+        if (xhr.readyState === 4 && xhr.status === 200){
+          var result = document.getElementById(divId);
+          result.innerText = xhr.responseText;
+        }
+      };
+      xhr.send();
+    }
+
     </script>
     </body></html>
   `
